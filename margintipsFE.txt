@@ -1,0 +1,11 @@
+FRONT END DEVELOPMENT PROCESS
+
+Was stock on a 415 Error and was checking the problem against internet searches 
+Everyone else had a no-cors on 
+-confused multiple error points
+-cors safelisted as the crux point
+-Server wasn't cors enabled
+
+For some Reason Browser would always change my content type to text/plain
+
+REAL ERROR was the header property was missing an s header -> headers
