@@ -4,6 +4,7 @@ import CreatePlayerButton from './createPlayer';
 import WeeksGames from './weeksGames';
 import SportsTeam from './sportsTeam';
 import SportsGame from './sportsGame';
+import SignInButton from './SignIn';
 
 function App() {
   const test = "test team string";
@@ -24,10 +25,12 @@ function App() {
         >
           Learn React
         </a>
+        <SignInButton></SignInButton>
         <WeeksGames></WeeksGames>
         <CreatePlayerButton></CreatePlayerButton>
         <SportsTeam teamData={teamData}></SportsTeam>
         <SportsGame gameData={gameData}></SportsGame>
+
         
       </header>
     </div>
