@@ -1,7 +1,8 @@
 .team_abbrev {
   display: flex;
-  min-width: 45px;
-  min-height: 45px;
+  min-width: 3rem;
+  min-height: 3rem;
+  font-size: 1.2rem;
   align-items: center;
   justify-content: center;
   border: solid;

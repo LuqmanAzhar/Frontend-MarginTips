@@ -83,15 +83,38 @@ class SportsGame extends Component {
         //Reminder not to use state variables when rendering because it may 
         const input = this.tipInput;
 
-        return <li className="game">
-            <SportsTeam teamData={this.props.gameData.hTeam} onclick={this.handleAwayClick}/>
-            <div className="game_info">
-                <GameStatus/>
-                <TippingStatus ref={input}/>
-            </div>
-            <SportsTeam teamData={this.props.gameData.aTeam} onclick={this.handleHomeClick}/>
-        </li>
+        return (
+            <GameRow 
+                left={ <SportsTeam winner={true} teamData={this.props.gameData.hTeam} onclick={this.handleAwayClick}/>} 
+                right={<SportsTeam winner={false} teamData={this.props.gameData.aTeam} onclick={this.handleHomeClick}/>} 
+                center={<div className="game_info">
+                        <GameStatus />
+                        <TippingStatus ref={input} />
+                    </div>
+                }
+            />
+        )
     }
 };
+
+const dark = '#000000';
+const light = '#222222';
+const extraLight = '#EEEEEE';
+
+const GameRow = ({left, right, center}) => {
+    return (
+        <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', border: `3px solid ${light}`, borderRadius: 5, padding: 15, margin: 10, color: dark, backgroundColor: extraLight}}>
+            <div style={{flex: 0.5}}>
+                {left}
+            </div>
+            <div style={{flex: 1 }}>
+                {center}
+            </div>
+            <div style={{flex: 0.5}}>
+                {right}
+            </div>
+        </div>
+    )
+}
 
 export default SportsGame;
