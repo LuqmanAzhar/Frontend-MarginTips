@@ -24,11 +24,7 @@ class TeamName extends Component {
 
 class SportsTeam extends Component {
     render() {
-        return <div className='team' style={
-            {
-                backgroundColor: this.props.bGColour
-            }
-        } 
+        return <div className='team'
             onClick={this.props.onclick}
         >
         <TeamAbbrev 

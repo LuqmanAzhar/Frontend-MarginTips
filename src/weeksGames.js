@@ -1,7 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import SportsGame from './sportsGame';
 import './weeksGames.css'
 
+
+const WeeksGames2 = () => {
+
+    const [games, setGames] = useState();
+    const [isLoaded, setIsLoaded] = useState();
+
+    return (
+        <>
+        {isLoaded ? (<ol className='games'>
+            {games.map(game => ( 
+                <SportsGame gameData={game} key={game.id} className='sportsGame' />
+                ))}
+                </ol>) : 
+            
+
+                 <ol>fail</ol>
+            }
+            </>
+    )
+}
 
 class WeeksGames extends Component {
     constructor(props){
@@ -35,18 +55,27 @@ class WeeksGames extends Component {
 
 
         if (isLoaded){
-            console.log("success week")
-            console.log(games)
-            return <ol className='games'>
-            {games.map(game =>( 
-                <SportsGame gameData={game} key={game.id}></SportsGame>
-            ))}
-            </ol>
+            return (
+                <GamesList>
+                    {games}
+                </GamesList>
+            )
         }
         else {
             return <ol>fail</ol>
         }
     }
+}
+
+// This is very type unsafe
+const GamesList = ({children}) => {
+    return (
+        <div className='gamesList'>
+            {children.map(game => (
+                <SportsGame gameData={game} key={game.id} />
+            ))}
+        </div>
+    )
 }
 
 export default WeeksGames
